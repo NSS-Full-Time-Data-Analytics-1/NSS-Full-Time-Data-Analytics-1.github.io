@@ -39,6 +39,18 @@ function cohortMembers(list) {
       <i class="fab fa-linkedin fa-2x contactIcons"></i>
       </a>`;
     }
+    //if student doesn't have a capstone video then don't display the icon
+    if (item.video != null) {
+      studentContact += `<a href=${item.video} target="_blank">
+      <i class="fab fa-youtube-play fa-2x contactIcons"></i>
+      </a>`;
+    }
+    //if student doesn't have a podcast then don't display the icon
+    if (item.podcast != null) {
+      studentContact += `<a href=${item.podcast} target="_blank">
+      <i class="fab fa-podcast fa-2x contactIcons"></i>
+      </a>`;
+    }
     //if student doesn't have an email then don't display the icon
     if (item.email != null) {
       studentContact += `<a href=mailto:${item.email}>
@@ -84,13 +96,13 @@ function cohortMembers(list) {
       studentInfo += studentContact;
 
       studentInfo += `
-      
+
     ${item.bio}
     </div>
     <center><button type="button" data-dismiss="modal" class="backButton btn btn-outline-primary title-font bottom" aria-label="Close">
       Back
               </button></center>
-            
+
           </div >
         </div >
       </div > `;
