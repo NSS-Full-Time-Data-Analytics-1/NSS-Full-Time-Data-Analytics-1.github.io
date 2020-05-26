@@ -42,13 +42,13 @@ function cohortMembers(list) {
     //if student doesn't have a capstone video then don't display the icon
     if (item.video != null) {
       studentContact += `<a href=${item.video} target="_blank">
-      <i class="fab fa-youtube-play fa-2x contactIcons"></i>
+      <i class="fa fa-youtube  fa-2x contactIcons"></i>
       </a>`;
     }
     //if student doesn't have a podcast then don't display the icon
     if (item.podcast != null) {
       studentContact += `<a href=${item.podcast} target="_blank">
-      <i class="fab fa-podcast fa-2x contactIcons"></i>
+      <i class="fa fa-podcast fa-2x contactIcons"></i>
       </a>`;
     }
     //if student doesn't have an email then don't display the icon
