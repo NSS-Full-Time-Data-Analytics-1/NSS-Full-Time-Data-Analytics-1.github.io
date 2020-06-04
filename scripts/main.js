@@ -39,10 +39,24 @@ function cohortMembers(list) {
       <i class="fab fa-linkedin fa-2x contactIcons"></i>
       </a>`;
     }
+    //if student doesn't have an email then don't display the icon
+    if (item.email != null) {
+      studentContact += `<a href=mailto:${item.email}>
+              <i class="fas fa-envelope fa-2x contactIcons"></i>
+            </a>`;
+    }
+    studentContact += `</div>`
+    studentContact += `<div class="studentContact">`
+    //if student doesn't have a resume then don't display the icon
+    if (item.resume != null) {
+      studentContact += `<a href=${item.resume} target="_blank">
+      <i class="fa fa-file-alt  fa-2x contactIcons"></i>
+      </a>`;
+    }
     //if student doesn't have a capstone video then don't display the icon
     if (item.video != null) {
       studentContact += `<a href=${item.video} target="_blank">
-      <i class="fa fa-youtube  fa-2x contactIcons"></i>
+      <i class="fa fa-play-circle  fa-2x contactIcons"></i>
       </a>`;
     }
     //if student doesn't have a podcast then don't display the icon
@@ -50,12 +64,6 @@ function cohortMembers(list) {
       studentContact += `<a href=${item.podcast} target="_blank">
       <i class="fa fa-podcast fa-2x contactIcons"></i>
       </a>`;
-    }
-    //if student doesn't have an email then don't display the icon
-    if (item.email != null) {
-      studentContact += `<a href=mailto:${item.email}>
-              <i class="fas fa-envelope fa-2x contactIcons"></i>
-            </a>`;
     }
     studentContact += `</div>`;
 
