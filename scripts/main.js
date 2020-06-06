@@ -135,7 +135,7 @@ function cohortMembers(list) {
 // data-src=https://www.youtube.com/embed/hVimVzgtD6w
       //video link - hide the url in the data-src attribute so that it doesn't have to load all of the videos when the page opens
       studentInfo += `
-      <div id="cohortVideo${item.id}" tabindex="-1" class="modal fade" role="dialog">
+      <div id="cohortVideo${item.id}" tabindex="-1" class="modal fade" role="dialog" data-src=https://www.youtube.com/embed/hVimVzgtD6w>
         <div class="modal-dialog capstone__modal" role="document">
           <div class="modal-content">
             <div class="capstone__modal-header modal-header">
@@ -144,7 +144,7 @@ function cohortMembers(list) {
             </div>
               <div class="capstone__modal-body modal-body">
                 <div class="iframe-container">
-                  <iframe width="100%" height="100%" id="yt-player${item.id}" class="capstone__modal-iframe" src=https://www.youtube.com/embed/hVimVzgtD6w>
+                  <iframe width="100%" height="100%" id="yt-player${item.id}" class="capstone__modal-iframe">
                   </iframe>
                 </div>
               </div>
