@@ -97,6 +97,7 @@ main {
   border: none;
   border-radius: none;
   box-shadow: none;
+  display: block;
 }
 
 .technos,
@@ -304,4 +305,86 @@ button {
   .nav-link {
     font-size: 4vw;
   }
+}
+
+.technology {
+    width: 80%;
+    display: "block";
+    margin: 0 auto;
+    transition: .15s ease-in-out;
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.developers__card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100%;
+    -webkit-filter: grayscale(35%);
+    filter: grayscale(35%);
+}
+
+.developers__card, .section__header {
+    background-color: #fff;
+    color: #212529;
+}
+
+.capstone__modal, .capstone__modal-body, .capstone__modal-header {
+    max-width: 900px;
+    padding: 0;
+    color: rgba(0,0,0,.7);
+}
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.capstone__modal-iframe {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.flex-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-list .item {
+  flex: 1 0 25%;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.modal-header .close {
+    padding: 15px;
+    font-size: 2rem;
+    margin-right: 0px;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    margin-left: 12px;
+    font-weight: 400;
+}
+
+.modal {
+    padding-right: 0px !important;
+}
+
+.card-text{
+    text-align: center;
 }

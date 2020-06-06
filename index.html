@@ -71,7 +71,8 @@
 
     <main>
       <!-- podcast playlist -->
-      <div className="container"; align="center">
+      <!--
+      <div class="podplaylist"; align="center">
         <iframe
           width="60%"
           title="podcasts"
@@ -85,9 +86,9 @@
           <a href="https://soundcloud.com/user814070670" title="user814070670" target="_blank" style="color: #cccccc; text-decoration: none;">user814070670</a>
           <a href="https://soundcloud.com/user814070670/sets/radio-diaries" title="Radio Diaries" target="_blank" style="color: #cccccc; text-decoration: none;">Radio Diaries</a>
         </div>
-      </div>
-        <!-- developer section -->
-        <div class="container">
+      </div> -->
+        <!-- analysts section -->
+        <div class="analysts">
             <h1 class="text-center">Nashville Software School Full Time Data Analytics Cohort 1</h1>
             <h3 id="demo-date">Come see us demo on June 25!</h3>
             <div id="cohort" class="row">
@@ -311,6 +312,53 @@
         crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="scripts/main.js"></script>
+    <!-- <script type="text/javascript">
+      $(document).ready(function() {
+        // set unique id to videoplayer for the Webflow video element
+        var src = $('.videoplayer').children('iframe').attr('src');
+
+        $('.modal-link').click(function(e) {
+          e.preventDefault();
+          $('.videoplayer').children('iframe').attr('src', src);
+          $('.modal-background').fadeIn();
+        });
+        $('.close-modal').click(function(e) {
+          e.preventDefault();
+          $('.videoplayer').children('iframe').attr('src', '');
+          $('.modal-background').fadeOut();
+        });
+      });
+    </script> -->
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        $('.modal').on('show.bs.modal', function (e) {
+          var url = $(this).data('src');
+            $(this).find('iframe').attr('src', url);
+        });
+
+
+        $('.modal').on('hidden.bs.modal', function (e) {
+            $(this).find('iframe').attr('src', '');
+        });
+
+      });
+
+      $(document).ajaxComplete(function(){
+
+        $('.modal').on('show.bs.modal', function (e) {
+          var url = $(this).data('src');
+            $(this).find('iframe').attr('src', url);
+        });
+
+
+        $('.modal').on('hidden.bs.modal', function (e) {
+            $(this).find('iframe').attr('src', '');
+        });
+
+      });
+    </script>
 </body>
 
 </html>

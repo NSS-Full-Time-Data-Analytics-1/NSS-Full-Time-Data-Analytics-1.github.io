@@ -54,17 +54,24 @@ function cohortMembers(list) {
       </a>`;
     }
     //if student doesn't have a capstone video then don't display the icon
-    if (item.video != null) {
-      studentContact += `<a href=${item.video} target="_blank">
-      <i class="fa fa-play-circle  fa-2x contactIcons"></i>
-      </a>`;
-    }
+    // id="yt-player${item.id}" style="display:none" width="100%" height="100%" frameborder="0" class="capstone__modal-iframe"
+
+    // if (item.video != null) {
+    //   studentContact += `
+    //   <a src="https://www.youtube.com/watch?v=hVimVzgtD6w&t=300s" target="capstoneDemo">
+    //   <i class="fa fa-play-circle  fa-2x contactIcons">
+    //   </i>
+    //   </a>
+    //   <iframe width="560" height="315" src="https://www.youtube.com/embed/hVimVzgtD6w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    //   </iframe>`;
+    // }
+
     //if student doesn't have a podcast then don't display the icon
-    if (item.podcast != null) {
-      studentContact += `<a href=${item.podcast} target="_blank">
-      <i class="fa fa-podcast fa-2x contactIcons"></i>
-      </a>`;
-    }
+    // if (item.podcast != null) {
+    //   studentContact += `<a href=${item.podcast} target="_blank">
+    //   <i class="fa fa-podcast fa-2x contactIcons"></i>
+    //   </a>`;
+    // }
     studentContact += `</div>`;
 
     let studentInfo = `<div class="col-md-3 cohortMems">
@@ -77,14 +84,25 @@ function cohortMembers(list) {
     }
     studentInfo += studentContact;
 
+    //Capstone demo video
+    if (item.video != null) {
+      studentInfo += `
+        <center>
+          <button type="button" style="margin-bottom:0.15cm;" class="btn btn-outline-primary title-font bottom" data-toggle="modal" data-target="#cohortVideo${item.id}">
+            Capstone
+          </button>
+        </center>`
+    }
+
+
     //if a student doesn't have a bio, then the learn more button doesn't appear and a modal isn't created
     if (item.bio != null) {
       studentInfo += `
             <center><button type="button" class="btn btn-outline-primary title-font bottom" data-toggle="modal" data-target="#cohortMember${item.id}">
            Learn More!
-          </button></center>
-          </div>
-        </div>`;
+          </button></center>`
+
+    studentInfo += `</div></div>`;
       //modal info
       studentInfo += `
         <div class="modal fade" id="cohortMember${item.id}" tabindex="-1" role="dialog" aria-labelledby="cohortMember${item.id}Label" aria-hidden="true">
@@ -113,8 +131,29 @@ function cohortMembers(list) {
 
           </div >
         </div >
-      </div > `;
-    } else {
+      </div > `
+// data-src=https://www.youtube.com/embed/hVimVzgtD6w
+      //video link - hide the url in the data-src attribute so that it doesn't have to load all of the videos when the page opens
+      studentInfo += `
+      <div id="cohortVideo${item.id}" tabindex="-1" class="modal fade" role="dialog">
+        <div class="modal-dialog capstone__modal" role="document">
+          <div class="modal-content">
+            <div class="capstone__modal-header modal-header">
+              <h4 class="modal-title">${item.firstName} ${item.lastName} Final Capstone</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="capstone__modal-body modal-body">
+                <div class="iframe-container">
+                  <iframe width="100%" height="100%" id="yt-player${item.id}" class="capstone__modal-iframe" src=https://www.youtube.com/embed/hVimVzgtD6w>
+                  </iframe>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>`
+      ;
+    }
+    else {
       studentInfo += `
       </div>
         </div>
