@@ -45,33 +45,7 @@ function cohortMembers(list) {
               <i class="fas fa-envelope fa-2x contactIcons"></i>
             </a>`;
     }
-    studentContact += `</div>`
-    studentContact += `<div class="studentContact">`
-    //if student doesn't have a resume then don't display the icon
-    if (item.resume != null) {
-      studentContact += `<a href=${item.resume} target="_blank">
-      <i class="fa fa-file-alt  fa-2x contactIcons"></i>
-      </a>`;
-    }
-    //if student doesn't have a capstone video then don't display the icon
-    // id="yt-player${item.id}" style="display:none" width="100%" height="100%" frameborder="0" class="capstone__modal-iframe"
 
-    // if (item.video != null) {
-    //   studentContact += `
-    //   <a src="https://www.youtube.com/watch?v=hVimVzgtD6w&t=300s" target="capstoneDemo">
-    //   <i class="fa fa-play-circle  fa-2x contactIcons">
-    //   </i>
-    //   </a>
-    //   <iframe width="560" height="315" src="https://www.youtube.com/embed/hVimVzgtD6w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    //   </iframe>`;
-    // }
-
-    //if student doesn't have a podcast then don't display the icon
-    // if (item.podcast != null) {
-    //   studentContact += `<a href=${item.podcast} target="_blank">
-    //   <i class="fa fa-podcast fa-2x contactIcons"></i>
-    //   </a>`;
-    // }
     studentContact += `</div>`;
 
     let studentInfo = `<div class="col-md-3 cohortMems">
@@ -84,12 +58,25 @@ function cohortMembers(list) {
     }
     studentInfo += studentContact;
 
+    //Student resume
+    if (item.resume != null){
+    studentInfo += `
+    <center>
+      <a target="_blank" href="${item.resume}">
+        <button type="button" class="btn btn-outline-primary title-font bottom" style="margin-bottom:0.15cm;">
+          Resume
+        </button>
+      </a>
+    </center>
+    `
+    }
+
     //Capstone demo video
     if (item.video != null) {
       studentInfo += `
         <center>
           <button type="button" style="margin-bottom:0.15cm;" class="btn btn-outline-primary title-font bottom" data-toggle="modal" data-target="#cohortVideo${item.id}">
-            Capstone
+            Capstone Demo
           </button>
         </center>`
     }
@@ -132,10 +119,9 @@ function cohortMembers(list) {
           </div >
         </div >
       </div > `
-// data-src=https://www.youtube.com/embed/hVimVzgtD6w
       //video link - hide the url in the data-src attribute so that it doesn't have to load all of the videos when the page opens
       studentInfo += `
-      <div id="cohortVideo${item.id}" tabindex="-1" class="modal fade" role="dialog" data-src=https://www.youtube.com/embed/hVimVzgtD6w>
+      <div id="cohortVideo${item.id}" tabindex="-1" class="modal fade" role="dialog" data-src=${item.video}>
         <div class="modal-dialog capstone__modal" role="document">
           <div class="modal-content">
             <div class="capstone__modal-header modal-header">
