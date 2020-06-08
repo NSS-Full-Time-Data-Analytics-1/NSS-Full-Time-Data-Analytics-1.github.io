@@ -173,16 +173,12 @@ $.ajax({
     console.log("error", error);
   });
 
-function techs(list) {
-  let data = list.techs;
-  data.forEach(function(item) {
-    document.getElementById(
-      "techs"
-    ).innerHTML += `<div class="col-sm-2 technologies">
-         <center>
-         <a href="${item.link}" target="_blank"><img class="techs" src="${item.image}" alt="${item.name}" data-toggle="tooltip" data-placement="top" title="${item.name}"></a>
-         <br>
-         </center>
-      </div>`;
-  });
-}
+  function techs(list) {
+    let data = list.techs;
+    data.forEach(function (item) {
+      document.getElementById("techs").innerHTML +=
+        `<div class="col-4 col-xs-4 col-sm-4 col-md-2 p-4 technologies">
+           <a href="${item.link}" target="_blank"><img class="technology" src="${item.image}" alt="${item.name}"></a>
+        </div>`;
+    });
+  };
